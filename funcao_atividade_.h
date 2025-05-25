@@ -5,10 +5,9 @@
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/irq.h"
-#include "hardware/sync.h"   // para __wfi()
-#include "hardware/adc.h" // Biblioteca para manipulação do ADC no RP2040
+#include "hardware/sync.h" // para __wfi()
+#include "hardware/adc.h"  // Biblioteca para manipulação do ADC no RP2040
 #include "pico/multicore.h"
-
 
 // ======= DEFINIÇÕES E CONSTANTES =======
 #define DEBOUNCE_MS 40

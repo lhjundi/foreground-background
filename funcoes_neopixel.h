@@ -13,7 +13,8 @@
 #define NUM_COLUNAS 5
 #define NUM_LINHAS 5
 
-typedef struct {
+typedef struct
+{
     uint8_t G, R, B;
 } npLED_t;
 
