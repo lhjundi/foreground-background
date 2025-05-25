@@ -33,6 +33,9 @@ void gpio_callback(uint gpio, uint32_t events);
 void inicializar_pino(uint pino, uint direcao, bool pull_up, bool pull_down);
 void tratar_eventos_leds();
 void imprimir_fila();
+void restart_queue();
+
+bool joystick_button_pressed(uint32_t button_id);
 
 extern const uint BOTOES[NUM_BOTOES];
 extern const uint LEDS[NUM_BOTOES];

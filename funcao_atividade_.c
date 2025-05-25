@@ -15,6 +15,27 @@ volatile bool eventos_pendentes[NUM_BOTOES] = {false, false, false};
 volatile bool estado_leds[NUM_BOTOES] = {false, false, false};
 volatile bool core1_pronto = false;
 
+bool joystick_button_pressed(uint32_t button_id)
+{
+    return button_id == 2;
+}
+
+void restart_queue()
+{
+    printf("Reiniciando fila...\n");
+    npClear();
+    npWrite();
+    index_neo = 0;
+    contador = 0;
+    inicio = 0;
+    fim = 0;
+    quantidade = 0;
+    for (int i = 0; i < TAM_FILA; i++)
+    {
+        fila[i] = 0;
+    }
+}
+
 void gpio_callback(uint gpio, uint32_t events)
 {
     for (int i = 0; i < NUM_BOTOES; i++)
@@ -110,6 +131,10 @@ void tratar_eventos_leds()
                     quantidade--;
                     imprimir_fila();
                 }
+            }
+            else if (joystick_button_pressed(id1))
+            {
+                restart_queue();
             }
 
             // Atualiza LEDs RGB externos
